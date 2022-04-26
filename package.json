@@ -1,0 +1,22 @@
+{
+  "name": "mini-vue3",
+  "version": "1.0.0",
+  "description": "a lerning vue3 project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c rollup.config.js"
+  },
+  "keywords": [
+    "mini-vue3"
+  ],
+  "author": "wuson",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^28.0.0",
+    "rollup": "^2.70.2",
+    "rollup-plugin-typescript2": "^0.31.2",
+    "tslib": "^2.4.0",
+    "typescript": "^4.6.3"
+  }
+}

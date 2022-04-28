@@ -4,8 +4,9 @@
   "description": "a lerning vue3 project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rollup -c rollup.config.js"
+    "test": "jest",
+    "build": "rollup -c rollup.config.js",
+    "test-unit": "jest ./src/reactive/__test__/effect.spec.ts"
   },
   "keywords": [
     "mini-vue3"
@@ -13,9 +14,11 @@
   "author": "wuson",
   "license": "ISC",
   "devDependencies": {
-    "jest": "^28.0.0",
+    "@types/jest": "^27.4.1",
+    "jest": "27.1.0",
     "rollup": "^2.70.2",
     "rollup-plugin-typescript2": "^0.31.2",
+    "ts-jest": "^27.1.4",
     "tslib": "^2.4.0",
     "typescript": "^4.6.3"
   }

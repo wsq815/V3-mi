@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "build": "rollup -c rollup.config.js",
-    "test-unit": "jest ./src/reactive/__test__/effect.spec.ts"
+    "test-unit": "jest ./src/reactive/__test__/ref.spec.ts"
   },
   "keywords": [
     "mini-vue3"

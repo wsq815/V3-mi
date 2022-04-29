@@ -1,14 +1,24 @@
 import { toRaw } from "./reactive"
-import { shouldTrack, activeEffect, trackEffects } from "./effect"
+import { 
+  shouldTrack, 
+  activeEffect, 
+  trackEffects,
+  triggerEffects
+} from "./effect"
+import { createDep } from './dep'
 
 export function trackRefValue(ref){
   if(shouldTrack && activeEffect){
-    trackEffects(ref.dep)
+    trackEffects(ref.dep || (ref.dep = createDep()), {
+      key: 'value'
+    })
   }
 }
 
 export function triggerRefValue(ref, newVal){
-
+   if(ref.dep){
+    triggerEffects(ref.dep || (ref.dep = createDep()))
+   }
 }
 
 export function ref(value){
@@ -27,7 +37,7 @@ class RefImpl{
   public readonly __v_isRef = true
 
   constructor(value, __v_isShallow){
-    this._rawValue = __v_isShallow ? value : toRaw(value)
+    this._rawValue = value
     this._value = value
   }
   
@@ -37,6 +47,7 @@ class RefImpl{
   }
   set value(newVal){
     this._rawValue = newVal
+    this._value = newVal
     triggerRefValue(this, newVal)
   }
 }
